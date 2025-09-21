@@ -1,0 +1,31 @@
+name: GapUpGapDown Bot 24x7
+
+on:
+  workflow_dispatch:   # manual start
+  schedule:
+    - cron: "0 * * * *"   # restart every hour to bypass 6h GitHub limit
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt || true
+
+      - name: Run bot in infinite loop
+        run: |
+          echo "Starting GapUpGapDown bot loop..."
+          while true; do
+            python gpUpgpDn5min.py || echo "Bot crashed, restarting immediately..."
+          done
