@@ -1,9 +1,13 @@
 name: GapUpGapDown Bot 24x7
 
 on:
-  workflow_dispatch:   # manual start
+  workflow_dispatch:    # manual start
   schedule:
-    - cron: "0 * * * *"   # restart every hour to bypass 6h GitHub limit
+    - cron: "0 */6 * * *"   # restart every 6h
+
+concurrency:
+  group: gapupgapdown-bot
+  cancel-in-progress: true   # always cancel old, run latest
 
 jobs:
   run-bot:
