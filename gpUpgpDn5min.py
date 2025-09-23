@@ -21,7 +21,7 @@ MAX_RECONNECT_ATTEMPTS = 5
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # Telegram Config
-TELEGRAM_TOKEN = "8137164045:AAF7uxGaEFU6BOQkhHHWiHPSOoJOUTbMM1k"
+TELEGRAM_TOKEN = "8247866819:AAFxJz1gUuJGVN6DNpTJNZ_F21N8VTjD7W0"
 TELEGRAM_CHAT_ID = "5837597618"
 
 # Send alert to Telegram
@@ -166,3 +166,4 @@ for url in WEBSOCKET_URLS:
             attempt += 1
             if attempt < MAX_RECONNECT_ATTEMPTS:
                 time.sleep(10)
+
